@@ -1,0 +1,6 @@
+venv
+.delete
+.idea
+__pycache__
+.deleted
+*.egg-info
