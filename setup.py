@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='twilight_scheduled_jobs',
-    version='0.1.3',
+    version='0.1.4',
     description='Twilight time-based scheduled jobs based on schedule package and Skyfield package',
     url='https://github.com/dims-poland/twilight-scheduled-jobs',
     author='Michal Vrábel',

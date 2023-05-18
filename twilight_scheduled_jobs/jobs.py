@@ -91,7 +91,7 @@ def run_pending_loop(
             logger.info('Keyboard interrupt received. Exiting.')
             break
         except Exception as e:
-            logger.error('Error in scheduled camera settings loop [%s]: %s'.format(str(e)))
+            logger.exception('Error in scheduled camera settings loop [%s]: %s', type(e).__name__, str(e))
 
         time.sleep(schedule_pending_check_interval)
 
@@ -99,12 +99,12 @@ def run_pending_loop(
 def run_job_wrapper(
         settings_dict,
         logger,
-        apply_settings_job_func,
+        settings_job_func,
         datetime_variable_values_dict_factory,
         run_once=False,
         **kwargs
 ):
-    apply_settings_job_func(**{
+    settings_job_func(**{
         **kwargs,
         **dict(
             settings_dict=settings_dict,
