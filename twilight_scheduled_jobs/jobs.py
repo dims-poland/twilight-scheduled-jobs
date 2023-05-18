@@ -84,7 +84,7 @@ def run_pending_loop(
         schedule_pending_check_interval=DEFAULTS['schedule_pending_check_interval'],
 ):
     logger.debug('Starting scheduled camera settings loop')
-    while not safe_termination_terminate_flag.terminate_flag:
+    while not safe_termination_terminate_flag:
         try:
             scheduler.run_pending()
         except KeyboardInterrupt:
