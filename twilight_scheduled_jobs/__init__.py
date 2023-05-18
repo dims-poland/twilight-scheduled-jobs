@@ -5,4 +5,4 @@ from .jobs import initialize_jobs, run_pending_loop
 from .floating_next_run_job import CustomizableScheduler, FloatingNextRunJob
 from .main import twilight_scheduled_jobs_main
 
-__version__ = '0.1.1'
+__version__ = '0.1.2'

@@ -20,7 +20,7 @@ def twilight_scheduled_jobs_main(
         schedule_file,
         station_geographic_position,
         settings_job_func,
-        current_date_overwrite=None,
+        current_datetime=None,
         timezone=DEFAULTS['timezone'],
         variable_marker=DEFAULTS['variable_marker'],
         next_t0_expression=DEFAULTS['next_t0_expression'],
@@ -30,16 +30,16 @@ def twilight_scheduled_jobs_main(
         job_logger_name_format=DEFAULTS['scheduled_job_logger_name_format'],
         logger=None,
 ):
-    current_date_overwrite = dateutil.parser.parse(current_date_overwrite) \
-        if isinstance(current_date_overwrite, str) \
-        else current_date_overwrite
+    current_datetime = dateutil.parser.parse(current_datetime) \
+        if isinstance(current_datetime, str) \
+        else current_datetime
 
     if logger is None:
         logger = logging.getLogger(DEFAULT_LOGGER_NAME)
 
     current_datetime = datetime.datetime.now(pytz.timezone(timezone)) \
-        if current_date_overwrite is None \
-        else current_date_overwrite
+        if current_datetime is None \
+        else current_datetime
 
     timezone = pytz.timezone(timezone)
     job_settings_by_datetime_expression = load_job_settings_dict_yaml(
